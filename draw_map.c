@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:01:08 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/04 21:10:12 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:30:49 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void    draw_player(t_data *data)
         }
         i++;
     }
-    // cast_ray(data, data->rotation_angle);
 }
 
 
@@ -89,4 +88,5 @@ void    render_map(t_data *data)
     draw_map(data);
     draw_player(data);
     cast_all_rays(data);
+    // ray_facing_checker(data);
 }

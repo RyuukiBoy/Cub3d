@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:30 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/04 21:08:52 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:00:29 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,14 @@ void    cast_ray(t_data *data, float ray_angle)
 
 void    cast_all_rays(t_data *data)
 {
-    float   fov;
-    float   ray_angle;
     int     i;
-    int     num_rays;
 
     i = 0;
-    fov = 60 * (M_PI / 180);
-    num_rays = data->win_width / 5;
-    while (i < num_rays)
+    while (i < data->num_rays)
     {
-        ray_angle = data->rotation_angle - (fov / 2) + (i * fov / num_rays);
-        cast_ray(data, ray_angle);
+        data->ray_angle = get_ray_angle(data) + (i * data->fov / data->num_rays);
+        cast_ray(data, normalize_angle(data->ray_angle));
         i++;
     }
 }
+

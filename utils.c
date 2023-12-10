@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:53:02 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/11/30 15:38:33 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:20:53 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,12 @@ char    **read_map(char *file)
     free(line);
     map[i] = NULL;
     return (map);
+}
+
+float   get_ray_angle(t_data *data)
+{
+    float ray_angle;
+
+    ray_angle = data->rotation_angle - (data->fov / 2);
+    return (ray_angle);
 }

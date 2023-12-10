@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:50:47 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/04 17:31:13 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:12:52 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,20 @@ void    init_data(t_data *data, char **argv)
     data->radius = 5;
     data->turn_direction = 0;
     data->walk_direction = 0;
-    data->rotation_angle = M_PI / 2;
+    data->rotation_angle = 3 * M_PI / 2;
     data->move_speed = 0.1;
     data->rotation_speed = 2 * (M_PI / 180);
+    data->num_rays = data->win_width / 5;
+    data->distance = 0;
+    data->fov = 60 * (M_PI / 180);
+    data->x_intercept = 0;
+    data->y_intercept = 0;
+    data->y_step = data->tile_size;
+    // data->x_step = data->tile_size / tan(data->ray_angle);
+    // data->is_ray_facing_down = data->ray_angle > 0 && data->ray_angle < M_PI;
+    // data->is_ray_facing_up = !data->is_ray_facing_down;
+    // data->is_ray_facing_right = data->ray_angle < 0.5 * M_PI || data->ray_angle > 1.5 * M_PI;
+    // data->is_ray_facing_left = !data->is_ray_facing_right;
 }
 
 int main(int argc, char **argv)

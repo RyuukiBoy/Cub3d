@@ -2,7 +2,7 @@ NAME= cub3D
 CC= cc
 CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g3
 
-SRC= cub3d.c utils.c moves.c raycasting.c draw_map.c gnl/gnl_u.c gnl/gnl.c 
+SRC= cub3d.c utils.c moves.c raycasting.c engine_calculation.c draw_map.c gnl/gnl_u.c gnl/gnl.c 
 OBJ= $(SRC:.c=.o)
 
 all: $(NAME)
