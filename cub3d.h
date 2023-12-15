@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:58:35 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/10 13:59:49 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/15 10:50:34 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
+
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -65,13 +66,34 @@ typedef struct s_data
     float horz_x;
     float horz_y;
     int was_hit_horizontal;
+    int was_hit_vertical;
     int is_ray_facing_up;
     int is_ray_facing_down;
     int is_ray_facing_left;
     int is_ray_facing_right;
+    // new adds
     float x_intercept;
     float y_intercept;
+    float x_ver_intercept;
+    float y_ver_intercept;
+    float x_ver_step;
+    float y_ver_step;
+    float vert_x;
+    float vert_y;
+    float wall_vert_x;
+    float wall_vert_y;
+    float x_dest;
+    float y_dest;
 }               t_data;
+
+typedef struct s_utils
+{
+    float   x;
+    float   y;
+    float   dx;
+    float   dy;
+    float   step_size;
+}               t_utils;
 
 void    draw_map(t_data *data);
 void    draw_player(t_data *data);
@@ -98,5 +120,7 @@ void    upLeft_downLeft_checker(t_data *data);
 void    get_intercepts(t_data *data);
 int     is_wall(t_data *data, float x, float y);
 float   get_ray_angle(t_data *data);
+float   distance_bt_points(float x1, float y1, float x2, float y2);
 
 #endif
+

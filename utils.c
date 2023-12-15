@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:53:02 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/10 17:20:53 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/15 10:42:33 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,22 @@ float   get_ray_angle(t_data *data)
     float ray_angle;
 
     ray_angle = data->rotation_angle - (data->fov / 2);
+    if (ray_angle < 0)
+        ray_angle += 2 * M_PI;
+    if (ray_angle > 2 * M_PI)
+        ray_angle -= 2 * M_PI;
     return (ray_angle);
+}
+
+float   normalize_angle(float angle)
+{
+    angle = remainder(angle, 2 * M_PI);
+    if (angle < 0)
+        angle = (2 * M_PI) + angle;
+    return (angle);
+}
+
+float distance_bt_points(float x1, float  y1, float x2, float y2)
+{
+    return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1 ) * (y2 - y1));
 }
