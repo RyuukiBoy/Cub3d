@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:30 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/15 10:53:41 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:33:54 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void    cast_ray(t_data *data, float ray_angle)
     utils.dx = cos(ray_angle) * utils.step_size;
     utils.dy = sin(ray_angle) * utils.step_size;
     ray_facing_checker(data);
-    if (utils.x > data->x_dest)
-        casting(data, utils);
-    else
+    // if (utils.x > data->x_dest)
+    //     casting(data, utils);
+    // else
         casting_again(data, utils);
 }
 
@@ -73,6 +73,8 @@ void    cast_all_rays(t_data *data)
     {
         data->ray_angle = get_ray_angle(data) + (i * data->fov / data->num_rays);
         cast_ray(data, data->ray_angle);
+        // wall_projection(data);
+        draw_sky_fool(data);
         i++;
     }
 }

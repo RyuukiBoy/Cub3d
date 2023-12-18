@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:18:14 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/15 09:49:49 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:50:00 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ int is_wall(t_data *data, float x, float y)
     mapy = (int)y;
     if (mapx < 0 || mapx >= data->map_cols || mapy < 0 || mapy >= data->map_rows)
         return (2);
-
-    // printf("....%c \n", data->map[mapy][mapx]);
     if (data->map[mapy][mapx] == '1')
         return (1);
     return (0);
@@ -96,7 +94,7 @@ void move_player(t_data *data)
 
 int update(t_data *data)
 {
-    move_player(data);
+    // move_player(data);
     mlx_destroy_image(data->mlx_ptr, data->img_ptr);
     data->img_ptr = mlx_new_image(data->mlx_ptr, data->win_width, data->win_height);
     data->addr = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel, &data->line_length, &data->endian);

@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:58:35 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/15 10:50:34 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/17 15:36:25 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include "gnl/gnl.h"
 # include "keycodes.h"
 
+typedef struct s_ray t_ray;
+
 typedef struct s_data
 {
     void    *mlx_ptr;
@@ -31,7 +33,7 @@ typedef struct s_data
     void    *img_ptr;
     int     width;
     int     height;
-    int     color;
+    unsigned int     *color_buffer;
     int     x;
     int     y;
     int     tile_x;
@@ -67,6 +69,9 @@ typedef struct s_data
     float horz_y;
     int was_hit_horizontal;
     int was_hit_vertical;
+    int wall_hit_content;
+    int vert_content;
+    int horz_content;
     int is_ray_facing_up;
     int is_ray_facing_down;
     int is_ray_facing_left;
@@ -84,7 +89,14 @@ typedef struct s_data
     float wall_vert_y;
     float x_dest;
     float y_dest;
+    float perp_dist;
+    float dist_proj_plane;
+    float proj_wall_height;
+    int wall_strip_height;
+    int wall_top_pixel;
+    int wall_bottom_pixel;
 }               t_data;
+
 
 typedef struct s_utils
 {
@@ -121,6 +133,8 @@ void    get_intercepts(t_data *data);
 int     is_wall(t_data *data, float x, float y);
 float   get_ray_angle(t_data *data);
 float   distance_bt_points(float x1, float y1, float x2, float y2);
+void    wall_projection(t_data *data);
+void    init_data(t_data *data, char **argv);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:16:12 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/15 10:45:16 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:10:46 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,13 +134,15 @@ void    ray_facing_checker(t_data *data)
     vert_distance = distance_bt_points(data->p_x * data->tile_size + data->tile_size / 2, data->p_y * data->tile_size + data->tile_size / 2, data->wall_vert_x , data->wall_vert_y);
     if(vert_distance < horz_distance)
     {
+        data->distance = vert_distance;
         data->x_dest = data->wall_vert_x;
         data->y_dest = data->wall_vert_y;
     }
     else
     {
-         data->x_dest = data->wall_hit_x;
-         data->y_dest = data->wall_hit_y;
+        data->distance = horz_distance;
+        data->x_dest = data->wall_hit_x;
+        data->y_dest = data->wall_hit_y;
     }
+    printf("vert_distance = %f\n", data->distance);
 }
-
