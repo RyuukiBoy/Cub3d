@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:58:35 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/23 21:29:02 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:55:12 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,11 +124,12 @@ int     update(t_data *data);
 int     key_press(int keycode, t_data *data);
 int     key_release(int keycode, t_data *data);
 int     custom_round(float value);
-void    cast_ray(t_data *data);
+void    raycasting(t_data *data);
 void    cast_all_rays(t_data *data);
 float   normalize_angle(float angle);
 void    check_get_intercepts(t_data *data);
-void    ray_facing_checker(t_data *data);
+// void    ray_facing_checker(t_data *data);
+void    ray_facing_checker2(t_data *data);
 // void    ray_facing_checker(t_data *data, float horz_dis, float vert_dis);
 void    upRight_upLeft_checker(t_data *data);
 void    upLeft_downLeft_checker(t_data *data);

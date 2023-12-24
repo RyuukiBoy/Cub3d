@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:08:30 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/24 11:14:28 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:55:42 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void    casting_again(t_data *data, t_utils utils)
     }
 }
 
-void    cast_ray(t_data *data)
+void    cast_ray_2d(t_data *data)
 {
     t_utils utils;
 
@@ -79,8 +79,9 @@ void    cast_all_rays(t_data *data)
     data->ray_angle = get_ray_angle(data);
     while (i < data->win_width)
     {
-        ray_facing_checker(data);
-        // cast_ray(data);
+        raycasting(data);
+        // ray_facing_checker(data);
+        // cast_ray_2d(data);
         wall_projection(data, i);
         data->ray_angle += data->fov / data->win_width;
         i++;

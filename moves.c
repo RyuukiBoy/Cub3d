@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:18:14 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/24 11:14:36 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:21:26 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,12 @@ void move_player(t_data *data)
 
 int update(t_data *data)
 {
-    move_player(data);
     mlx_destroy_image(data->mlx_ptr, data->img_ptr);
     data->img_ptr = mlx_new_image(data->mlx_ptr, data->win_width, data->win_height);
     data->addr = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel, &data->line_length, &data->endian);
-    // render_map(data);
+    move_player(data);
     cast_all_rays(data);
+    // render_map(data);
     // wall_projection(data);
     mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
     return (0);
