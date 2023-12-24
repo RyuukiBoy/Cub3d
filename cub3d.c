@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:50:47 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/18 13:47:46 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:14:37 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,34 @@ void    init_data(t_data *data, char **argv)
     data->radius = 5;
     data->turn_direction = 0;
     data->walk_direction = 0;
-    data->rotation_angle = M_PI;
+    data->rotation_angle = 3 * (M_PI / 2);
     data->move_speed = 0.1;
     data->rotation_speed = 2 * (M_PI / 180);
     data->num_rays = data->win_width / 5;
-    data->distance = 0;
+    // data->distance = 0;
     data->fov = 60 * (M_PI / 180);
     //new adds;
-    data->x_intercept = 0;
-    data->y_intercept = 0;
-    data->x_ver_intercept = 0;
-    data->y_ver_intercept = 0;
+    // data->x_intercept = 0;
+    // data->y_intercept = 0;
+    // data->is_ray_facing_down = 0;
+    // data->is_ray_facing_up = 0;
+    // data->is_ray_facing_right = 0;
+    // data->is_ray_facing_left = 0;
+    // data->x_ver_intercept = 0;
+    // data->y_ver_intercept = 0;
     data->was_hit_horizontal = 0;
     data->was_hit_vertical = 0;
     data->wall_hit_content = 0;
     data->vert_content = 0;
     data->horz_content = 0;
-    data->x_ver_step = 0;
-    data->y_ver_step = 0;
-    data->vert_x = 0;
-    data->vert_y = 0;
-    data->wall_vert_x = 0;
-    data->wall_vert_y = 0;
-    data->x_dest = 0;
-    data->y_dest = 0;
+    // data->x_ver_step = 0;
+    // data->y_ver_step = 0;
+    // data->vert_x = 0;
+    // data->vert_y = 0;
+    // data->wall_vert_x = 0;
+    // data->wall_vert_y = 0;
+    // data->x_dest = 0;
+    // data->y_dest = 0;
     data->color_buffer = (unsigned int *)malloc(sizeof(unsigned int) * data->win_width * data->win_height);
 }
 

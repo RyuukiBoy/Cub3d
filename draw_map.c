@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:01:08 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/18 14:19:57 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/23 14:32:46 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void    draw_map(t_data *data)
 
 void    render_map(t_data *data)
 {
-    // draw_map(data);
-    // draw_player(data);
+    draw_map(data);
+    draw_player(data);
     cast_all_rays(data);
 }

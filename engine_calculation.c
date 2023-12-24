@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:16:12 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/18 14:10:46 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:29:32 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void    init_directions(t_data *data, float ray_angle)
 {
-    ray_angle = normalize_angle(ray_angle);
-    data->is_ray_facing_down =  ray_angle > 0 &&  ray_angle < M_PI;
+    float update_angle;
+    
+    update_angle = normalize_angle(ray_angle);
+    data->is_ray_facing_down = update_angle > 0 && update_angle < M_PI;
     data->is_ray_facing_up = !data->is_ray_facing_down;
-    data->is_ray_facing_right = ray_angle < 0.5 * M_PI || ray_angle > 1.5 * M_PI ;
+    data->is_ray_facing_right = update_angle < 0.5 * M_PI || update_angle > 1.5 * M_PI;
     data->is_ray_facing_left = !data->is_ray_facing_right;
 }
 
@@ -51,17 +53,18 @@ void    get_horizontal_wallhit(t_data *data)
 
     init_directions(data, data->ray_angle);
     set_horizontal_calculation(data);
-    while ((int)data->horz_x >= 0 && (int)data->horz_x <= (int)data->win_width && (int)data->horz_y >= 0 && (int)data->horz_y <= (int)data->win_height)
+    while (data->horz_x >= 0 && data->horz_x <= data->win_width && data->horz_y >= 0 && data->horz_y <= data->win_height)
     {
         xtocheck = data->horz_x;
         ytocheck = data->horz_y;
         if(data->is_ray_facing_up)
             ytocheck = data->horz_y - 1;
-        if (data->map[(int)((ytocheck) / 42)][(int)((xtocheck) /42)] == '1')
+        if (data->map[(int)((ytocheck) / data->tile_size)][(int)((xtocheck) / data->tile_size)] == '1')
         { 
             data->was_hit_horizontal = 1;
             data->wall_hit_x = xtocheck;
             data->wall_hit_y = ytocheck;
+            data->found_horz_wall_hit = 1;
             break ;
         }
         else
@@ -108,11 +111,12 @@ void    get_vertical_wallhit(t_data *data)
         if(data->is_ray_facing_left)
             xtocheck = data->vert_x - 1;
         ytocheck = data->vert_y;
-        if (data->map[(int)((ytocheck) / 42)][(int)((xtocheck) /42)] == '1')
+        if (data->map[(int)((ytocheck) / data->tile_size)][(int)((xtocheck) / data->tile_size)] == '1')
         { 
-            data->was_hit_vertical = 1;
-            data->wall_vert_x = data->vert_x;
-            data->wall_vert_y = data->vert_y;
+            data->was_hit_vertical = 1;   
+            data->wall_vert_x = xtocheck; 
+            data->wall_vert_y = ytocheck; 
+            data->found_vert_wall_hit = 1;
             break ;
         }
         else
@@ -132,17 +136,20 @@ void    ray_facing_checker(t_data *data)
     get_vertical_wallhit(data);
     horz_distance = distance_bt_points(data->p_x * data->tile_size + data->tile_size / 2, data->p_y * data->tile_size + data->tile_size / 2, data->wall_hit_x , data->wall_hit_y);
     vert_distance = distance_bt_points(data->p_x * data->tile_size + data->tile_size / 2, data->p_y * data->tile_size + data->tile_size / 2, data->wall_vert_x , data->wall_vert_y);
-    if(vert_distance < horz_distance)
+    if (vert_distance < horz_distance)
     {
         data->distance = vert_distance;
         data->x_dest = data->wall_vert_x;
         data->y_dest = data->wall_vert_y;
+        data->wall_hit_content = data->vert_content;
+        data->was_hit_vertical = 1;
     }
     else
     {
         data->distance = horz_distance;
         data->x_dest = data->wall_hit_x;
         data->y_dest = data->wall_hit_y;
+        data->wall_hit_content = data->horz_content;
+        data->was_hit_vertical = 0;
     }
-    printf("vert_distance = %f\n", data->distance);
 }

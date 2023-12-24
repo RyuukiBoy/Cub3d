@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:53:02 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/15 16:05:42 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:18:33 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,5 @@ float   normalize_angle(float angle)
 
 float distance_bt_points(float x1, float  y1, float x2, float y2)
 {
-    return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1 ) * (y2 - y1));
+    return (sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2)));
 }

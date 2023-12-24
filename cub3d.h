@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:58:35 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/17 15:36:25 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:29:02 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-
+# include <limits.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -64,7 +64,7 @@ typedef struct s_data
     float ray_angle;
     float wall_hit_x;
     float wall_hit_y;
-    float distance;
+    double distance;
     float horz_x;
     float horz_y;
     int was_hit_horizontal;
@@ -72,6 +72,8 @@ typedef struct s_data
     int wall_hit_content;
     int vert_content;
     int horz_content;
+    int found_horz_wall_hit;
+    int found_vert_wall_hit;
     int is_ray_facing_up;
     int is_ray_facing_down;
     int is_ray_facing_left;
@@ -122,19 +124,25 @@ int     update(t_data *data);
 int     key_press(int keycode, t_data *data);
 int     key_release(int keycode, t_data *data);
 int     custom_round(float value);
-void    cast_ray(t_data *data, float ray_angle);
+void    cast_ray(t_data *data);
 void    cast_all_rays(t_data *data);
 float   normalize_angle(float angle);
 void    check_get_intercepts(t_data *data);
 void    ray_facing_checker(t_data *data);
+// void    ray_facing_checker(t_data *data, float horz_dis, float vert_dis);
 void    upRight_upLeft_checker(t_data *data);
 void    upLeft_downLeft_checker(t_data *data);
 void    get_intercepts(t_data *data);
 int     is_wall(t_data *data, float x, float y);
 float   get_ray_angle(t_data *data);
 float   distance_bt_points(float x1, float y1, float x2, float y2);
-void    wall_projection(t_data *data);
+void    wall_projection(t_data *data, int i);
 void    init_data(t_data *data, char **argv);
+void    render_3d_screen(t_data *data);
+void    render_color_buffer(t_data *t_data);
+void    distance_adjustement(t_data *data);
+void    vert_intersection(t_data *data);
+void    horz_intersection(t_data *data);
 
 #endif
 
