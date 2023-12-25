@@ -34,9 +34,23 @@ void    wall_projection(t_data *data, int i)
     j = data->wall_top_pixel;
     while (j < data->wall_bottom_pixel)
     {
-        my_mlx_pixel_put(data, i, j, 0xFFFFFF);
+        if (data->was_hit_vertical)
+            my_mlx_pixel_put(data, i, j, 0x5C4033);
+        else
+            my_mlx_pixel_put(data, i, j, 0x964B00);
         j++;
     }
-    
+    j = 0;
+    while (j < data->wall_top_pixel)
+    {
+        my_mlx_pixel_put(data, i, j, 0x87CEEB);
+        j++;
+    }
+    j = data->wall_bottom_pixel;
+    while (j < data->win_height)
+    {
+        my_mlx_pixel_put(data, i, j, 0xd3d3d3);
+        j++;
+    }
 }
 

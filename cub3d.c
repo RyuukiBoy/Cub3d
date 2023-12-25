@@ -16,7 +16,7 @@ void    init_data(t_data *data, char **argv)
 {
     data->x = 0;
     data->y = 0;
-    data->tile_size = 42;
+    data->tile_size = 60;
     data->map_cols = count_col(argv[1]);
     data->map_rows = count_row(argv[1]);
     data->win_width = data->map_cols * data->tile_size;
@@ -34,7 +34,7 @@ void    init_data(t_data *data, char **argv)
     data->turn_direction = 0;
     data->walk_direction = 0;
     data->rotation_angle = 3 * (M_PI / 2);
-    data->move_speed = 0.1;
+    data->move_speed = 0.07;
     data->rotation_speed = 2 * (M_PI / 180);
     data->num_rays = data->win_width / 5;
     // data->distance = 0;
