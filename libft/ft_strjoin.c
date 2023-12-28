@@ -3,64 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybargach <ybargach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 10:44:56 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/08/11 08:43:55 by ybargach         ###   ########.fr       */
+/*   Created: 2023/01/05 13:59:57 by ybouzafo          #+#    #+#             */
+/*   Updated: 2023/10/21 13:48:49 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*p;
-	int		d;
-	int		a;
-	int		b;
+	int		i;
+	int		j;
 
-	if (!s1 || !s2)
-		return (0);
-	d = (ft_strlen(s1) + ft_strlen(s2) + 2);
-	a = 0;
-	b = 0;
-	p = malloc(d * sizeof(char));
-	if (!p)
-		return (0);
-	while (s1[b] && d - 1 > a)
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	i = 0;
+	p = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+	while (p && s1 && s1[i])
 	{
-		p[a] = s1[b];
-		a++;
-		b++;
+		p[i] = s1[i];
+		i++;
 	}
-	p[a++] = '/';
-	p[a] = '\0';
-	ft_strlcat(p, s2, d);
-	return (p);
-}
-
-char	*ft_strjoin_simple(char const *s1, char const *s2)
-{
-	char	*p;
-	int		d;
-	int		a;
-	int		b;
-
-	if (!s1 || !s2)
-		return (0);
-	d = (ft_strlen_int(s1) + ft_strlen_int(s2) + 2);
-	a = 0;
-	b = 0;
-	p = malloc(d * sizeof(char));
-	if (!p)
-		return (0);
-	while (s1[b] && d - 1 > a)
+	j = 0;
+	while (p && s2 && s2[j])
 	{
-		p[a] = s1[b];
-		a++;
-		b++;
+		p[i++] = s2[j++];
 	}
-	p[a] = '\0';
-	ft_strlcat(p, s2, d);
+	if (p)
+		p[i] = 0;
 	return (p);
 }

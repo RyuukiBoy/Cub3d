@@ -3,40 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:01:23 by oait-bad          #+#    #+#             */
-/*   Updated: 2022/12/21 13:49:25 by oait-bad         ###   ########.fr       */
+/*   Created: 2022/10/17 15:25:12 by ybouzafo          #+#    #+#             */
+/*   Updated: 2023/10/21 14:52:18 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_is_digit(char c)
 {
-	int							i;
-	int							sign;
-	unsigned long long			res;
+	return (c >= '0' && c <= '9');
+}
+
+int	ft_is_valid_number(const char *str)
+{
+	int	i;
 
 	i = 0;
-	res = 0;
-	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+	if (str[i] == '-' || str[i] == '+')
+	{
 		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		nptr++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (str[i])
 	{
-		res = (res * 10) + (nptr[i] - 48);
-		if (res > 9223372036854775807 && sign == 1)
-			return (-1);
-		if (res > 9223372036854775807 && sign == -1)
+		if (!ft_is_digit(str[i]))
+		{
 			return (0);
+		}
 		i++;
 	}
-	return (res * sign);
+	return (1);
+}
+
+long long	ft_number(const char *str)
+{
+	int			i;
+	long long	a;
+	int			sign;
+
+	i = 0;
+	a = 0;
+	sign = 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			sign = -1;
+		}
+		i++;
+	}
+	while (ft_is_digit(str[i]))
+	{
+		a = a * 10 + (str[i] - '0');
+		i++;
+	}
+	return (a * sign);
+}
+
+long long	ft_atoi(const char *str)
+{
+	long long	result;
+
+	if (!ft_is_valid_number(str))
+	{
+		return (-1);
+	}
+	result = ft_number(str);
+	if (result < -2147483648 || result > 2147483647)
+	{
+		return (-1);
+	}
+	return (result);
 }

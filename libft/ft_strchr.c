@@ -3,29 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 15:11:42 by oait-bad          #+#    #+#             */
-/*   Updated: 2022/12/21 13:53:16 by oait-bad         ###   ########.fr       */
+/*   Created: 2022/10/11 12:12:43 by ybouzafo          #+#    #+#             */
+/*   Updated: 2022/11/03 20:55:35 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
-{	
-	unsigned int	i;
+char	*ft_strchr(const char *string, int r)
+{
+	char	*ptr;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == (char)c)
-		{
-			return ((char *)&str[i++]);
-		}
-		str++;
-	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
+	ptr = (char *)string;
+	while (*ptr != (char )r && *ptr != '\0')
+		ptr++;
+	if (*ptr == (char )r)
+		return (ptr);
 	return (0);
 }
