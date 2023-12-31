@@ -12,7 +12,6 @@
 
 #include "../includes/cub.h"
 
-
 void	check_player(t_map *map)
 {
 	int	i;
@@ -88,11 +87,9 @@ void	check_map(t_map *map)
 	}
 	if (map->ptr)
 		map->map_tot = ft_split(map->ptr, '\n');
-	
 	if (map->map_tot[0] == NULL)
 		print_error("Error : no map in the file");
 	i = 0;
-	
 	while (map->map_tot[i])
 	{
 		if (map->map_tot[i + 1] == NULL)

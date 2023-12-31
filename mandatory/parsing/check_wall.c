@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:18:12 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/31 08:33:59 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2023/12/31 10:14:39 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	check_len_j(t_map *map)
 	i = 0;
 	len_j = ft_strleen(map->map_tot) - 1;
 	len_i = ft_strlenn(map->map_tot) - 1;
-	
-	while (i < len_i )
+	while (i < len_i)
 	{
 		len_j = ft_strleen(map->map_tot) - 1;
-		while (len_j && (map->map_tot[i][len_j] == ' ' || map->map_tot[i][len_j] == '\t'))
+		while (len_j && (map->map_tot[i][len_j] == ' '
+			|| map->map_tot[i][len_j] == '\t'))
 		{
 			len_j--;
 		}

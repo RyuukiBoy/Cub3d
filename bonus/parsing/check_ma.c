@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_ma.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:22:18 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 18:58:21 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/31 10:11:22 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	len_max(t_map *map)
 	int	len_max;
 	int	c_len;
 
+	map->len_max = 0;
 	i = 0;
 	len_max = 0;
 	c_len = 0;
@@ -30,6 +31,7 @@ int	len_max(t_map *map)
 		}
 		i++;
 	}
+	map->len_max = len_max;
 	return (len_max);
 }
 

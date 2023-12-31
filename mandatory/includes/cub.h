@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:01:32 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/30 19:47:47 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2023/12/31 11:02:10 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ typedef struct s_map
 	t_fc		*fc;
 	t_rgb		*rgb;
 	int			textures_x;
+	int			len_max;
 }				t_map;
 // pars
 void			ft_close(t_map *map);
@@ -229,7 +230,6 @@ void			print_error(char *str);
 char			*skip_space(char *line);
 void			check_double_char(char *line, t_map *map);
 void			check_dub_char(char *line, t_map *map);
-void			check_player_second(t_map *map);
 int				check_err_col_c(char *line, t_map *map);
 int				check_err_col_f(char *line, t_map *map);
 
@@ -251,15 +251,10 @@ void			draw_player(t_map *data);
 void			my_mlx_pixel_put(t_map *data, int x, int y, int color);
 // cast rays
 void			cast_all_rays(t_map *data);
-void			cast_ray(t_map *data);
 float			normalize_angle(float angle);
 float			distance_bt_points(float x1, float y1, float x2, float y2);
 float			get_ray_angle(t_map *data);
 void			init_directions(t_map *data, float ray_angle);
-void			set_horizontal_calculation(t_map *data);
-void			get_horizontal_wallhit(t_map *data);
-void			set_vertical_calculation(t_map *data);
-void			get_vertical_wallhit(t_map *data);
 char			*ft_strtrim_to_free(char *str, char *ptr);
 // ray_norm
 void			cast_ray_2d(t_map *data);
@@ -293,5 +288,9 @@ void			vert_intercepts(t_map *data, float *nexttouchvert_x,
 int				create_rgb(int r, int g, int b);
 char			*skip_tab_space(char *ptr);
 void			check_virg(char *tmp);
+void			vert_wall_hit(t_map *data, float *nexttouchvert_x,
+					float *nexttouchvert_y);
+void			horz_wall_hit(t_map *data, float *nexttouchhorz_x,
+					float *nexttouchhorz_y);
 
 #endif

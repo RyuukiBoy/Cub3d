@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 18:06:30 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/28 19:11:11 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/31 09:55:31 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	draw_map(t_map *data)
 			if (data->map_tot[data->y / data->tile_size][data->x
 				/ data->tile_size] == '1')
 				my_mlx_pixel_put(data, data->x, data->y, 0x00FF0000);
+			else if (data->map_tot[data->y / data->tile_size][data->x
+				/ data->tile_size] == ' ')
+				my_mlx_pixel_put(data, data->x, data->y, 0x0050005);
 			else
 				my_mlx_pixel_put(data, data->x, data->y, 0xFFFFFF);
 			if (data->x % data->tile_size == 0 || data->y

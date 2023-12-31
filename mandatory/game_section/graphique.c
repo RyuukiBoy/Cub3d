@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphique.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 09:13:38 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 19:18:44 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/31 10:04:24 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	init_data(t_map *data)
 	data->x = 0;
 	data->y = 0;
 	data->tile_size = 70;
-	data->win_width = data->c_len_nor * data->tile_size;
+	data->win_width = data->len_max * data->tile_size;
 	data->win_height = data->map_rows * data->tile_size;
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->win_width,
