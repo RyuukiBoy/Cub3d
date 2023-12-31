@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:01:32 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/29 17:07:06 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:40:10 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,7 +231,6 @@ void			print_error(char *str);
 char			*skip_space(char *line);
 void			check_double_char(char *line, t_map *map);
 void			check_dub_char(char *line, t_map *map);
-void			check_player_second(t_map *map);
 int				check_err_col_c(char *line, t_map *map);
 int				check_err_col_f(char *line, t_map *map);
 
@@ -293,9 +292,11 @@ void			vert_intercepts(t_map *data, float *nexttouchvert_x,
 					float *nexttouchvert_y);
 
 int				create_rgb(int r, int g, int b);
-int mouse_move(int x, int y, t_map *data);
-void	move_player_bonus(t_map *data);
-void	slide_leftside(t_map *data);
-void	slide_rightside(t_map *data);
+int				mouse_move(int x, int y, t_map *data);
+void			move_player_bonus(t_map *data);
+void			slide_leftside(t_map *data);
+void			slide_rightside(t_map *data);
+char			*skip_tab_space(char *ptr);
+void			check_virg(char *tmp);
 
 #endif

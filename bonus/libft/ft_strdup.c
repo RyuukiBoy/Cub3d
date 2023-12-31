@@ -6,14 +6,13 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:00:02 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/10/21 13:33:56 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2023/12/30 18:54:25 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strttcpy(char *dest, char *src)
-
 {
 	int	i;
 

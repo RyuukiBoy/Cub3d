@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 18:13:18 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/28 19:17:46 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:29:20 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	is_wall(t_map *data, float x, float y)
 	mapy = (int)y;
 	if (mapx < 0 || mapx >= data->len_nor || mapy < 0 || mapy >= data->map_rows)
 		return (2);
-	if (data->map_tot[mapy][mapx] == '1')
+	if (data->map_tot[mapy][mapx] == '1' || data->map_tot[mapy][mapx] == ' ')
 	{
 		return (1);
 	}
@@ -89,10 +89,10 @@ void	move_player(t_map *data)
 	float	new_p_y;
 
 	data->rotation_angle += data->turn_direction * data->move_speed;
-	new_p_x = data->p_x + cos(data->rotation_angle)
-		* data->walk_direction * data->move_speed;
-	new_p_y = data->p_y + sin(data->rotation_angle)
-		* data->walk_direction * data->move_speed;
+	new_p_x = data->p_x + cos(data->rotation_angle) * data->walk_direction
+		* data->move_speed;
+	new_p_y = data->p_y + sin(data->rotation_angle) * data->walk_direction
+		* data->move_speed;
 	if (!is_wall(data, custom_round(new_p_x), custom_round(new_p_y))
 		&& !is_wall(data, custom_round(new_p_x), custom_round(data->p_y))
 		&& !is_wall(data, custom_round(data->p_x), custom_round(new_p_y)))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:34:37 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 19:24:52 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/30 18:43:05 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,29 @@ void	check_color_err(t_map *map)
 		print_error("ERROR : map without f_floor / c_ceiling");
 }
 
+char	*skip_tab_space(char *ptr)
+{
+	while (*ptr == ' ' || *ptr == '\t')
+		ptr++;
+	return (ptr);
+}
+
 void	valid_path_texture(t_map *map)
 {
 	map->posi_ea += 3;
-	map->textures->ea = open(map->posi_ea, O_RDONLY);
+	map->textures->ea = open(skip_tab_space(map->posi_ea), O_RDONLY);
 	if (map->textures->ea < 0)
 		print_error("Error : ea invalid texture path \n");
 	map->posi_no += 3;
-	map->textures->no = open(map->posi_no, O_RDONLY);
+	map->textures->no = open(skip_tab_space(map->posi_no), O_RDONLY);
 	if (map->textures->no < 0)
 		print_error("Error : no invalid texture path \n");
 	map->posi_so += 3;
-	map->textures->so = open(map->posi_so, O_RDONLY);
+	map->textures->so = open(skip_tab_space(map->posi_so), O_RDONLY);
 	if (map->textures->so < 0)
 		print_error("Error : so invalid texture path \n");
 	map->posi_we += 3;
-	map->textures->we = open(map->posi_we, O_RDONLY);
+	map->textures->we = open(skip_tab_space(map->posi_we), O_RDONLY);
 	if (map->textures->we < 0)
 		print_error("Error : we invalid texture path \n");
 	ft_close(map);

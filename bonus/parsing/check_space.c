@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_space.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:37:24 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 18:58:28 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:49:38 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	function_norm(t_map *map, int i, int j)
 {
 	if (map->map_tot[i + 1] && map->map_tot[i + 1][j] != ' ' && map->map_tot[i
-			+ 1][j] != '1')
+		+ 1][j] != '1')
 		error_print("ERROR : spaces \n");
 	if (i > 0 && map->map_tot[i - 1] && map->map_tot[i - 1] && map->map_tot[i
 			- 1][j] != ' ' && map->map_tot[i - 1][j] != '1')

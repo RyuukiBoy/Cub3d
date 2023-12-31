@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_m.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:22:38 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 18:58:18 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:40:16 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,14 @@ int	check_err_col_f(char *line, t_map *map)
 	char	*tmp;
 
 	i = 0;
-	tmp = ft_strtrim(line + 2, "\n");
+	tmp = ft_strtrim(skip_tab_space(line + 1), "\n");
+	check_virg(tmp);
 	ptr = ft_split(tmp, ',');
 	while (ptr[i])
 	{
 		if (ft_atoi(ptr[i]) > 255 || ft_atoi(ptr[i]) < 0
 			|| !ft_is_digit(*ptr[i]))
-		{
-			printf("f/c_error color \n");
-			exit(1);
-		}
+			print_error("f/c_error color \n");
 		i++;
 	}
 	stock_f_color(map, ptr);
@@ -69,7 +67,8 @@ int	check_err_col_c(char *line, t_map *map)
 	char	*tmp;
 
 	i = 0;
-	tmp = ft_strtrim(line + 2, "\n");
+	tmp = ft_strtrim(skip_tab_space(line + 1), "\n");
+	check_virg(tmp);
 	ptr = ft_split(tmp, ',');
 	while (ptr[i])
 	{

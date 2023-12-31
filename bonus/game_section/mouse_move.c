@@ -12,18 +12,17 @@
 
 #include "../includes/cub.h"
 
-int mouse_move(int x, int y, t_map *data)
+int	mouse_move(int x, int y, t_map *data)
 {
-    if (x < 0 || x > data->win_width || y < 0 || y > data->win_height)
-        return (0);
-    if (data->mouse_x != x)
-    {
-        if (data->mouse_x < x)
-            data->rotation_angle += 0.1;
-        else
-            data->rotation_angle -= 0.1;
-    }
-    data->mouse_x = x;
-    return (0);
+	if (x < 0 || x > data->win_width || y < 0 || y > data->win_height)
+		return (0);
+	if (data->mouse_x != x)
+	{
+		if (data->mouse_x < x)
+			data->rotation_angle += 0.1;
+		else
+			data->rotation_angle -= 0.1;
+	}
+	data->mouse_x = x;
+	return (0);
 }
-

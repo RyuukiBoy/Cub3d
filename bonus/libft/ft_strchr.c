@@ -17,9 +17,9 @@ char	*ft_strchr(const char *string, int r)
 	char	*ptr;
 
 	ptr = (char *)string;
-	while (*ptr != (char )r && *ptr != '\0')
+	while (*ptr != (char)r && *ptr != '\0')
 		ptr++;
-	if (*ptr == (char )r)
+	if (*ptr == (char)r)
 		return (ptr);
 	return (0);
 }

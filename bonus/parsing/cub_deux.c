@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_deux.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:38 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 18:58:41 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:49:50 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,21 @@ int	first_map(char *line)
 	else if (line[i] == '1')
 		return (1);
 	return (0);
+}
+
+void	check_virg(char *tmp)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (tmp[i])
+	{
+		if (tmp[i] == ',')
+			j++;
+		i++;
+	}
+	if (j != 2)
+		print_error("ERROR : colors ");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:01:32 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 19:30:43 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:47:47 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,5 +291,7 @@ void			vert_intercepts(t_map *data, float *nexttouchvert_x,
 					float *nexttouchvert_y);
 
 int				create_rgb(int r, int g, int b);
+char			*skip_tab_space(char *ptr);
+void			check_virg(char *tmp);
 
 #endif

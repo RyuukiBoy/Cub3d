@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting_three.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 18:38:02 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/28 19:19:25 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/31 08:29:28 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	vert_cast_2(t_map *data, float *nexttouchvert_x, float *nexttouchvert_y)
 		{
 			if (data->map_tot[(int)(*nexttouchvert_y
 					/ data->tile_size)][(int)(*nexttouchvert_x
-					/ data->tile_size) - 1] == '1')
+					/ data->tile_size) - 1] == '1' ||data->map_tot[(int)(*nexttouchvert_y
+					/ data->tile_size)][(int)(*nexttouchvert_x
+					/ data->tile_size) - 1] == ' ')
 			{
 				data->found_vert_wall_hit = 1;
 				data->wall_vert_x = *nexttouchvert_x;
@@ -51,7 +53,9 @@ void	vert_cast_1(t_map *data, float *nexttouchvert_x, float *nexttouchvert_y)
 		{
 			if (data->map_tot[(int)(*nexttouchvert_y
 					/ data->tile_size)][(int)(*nexttouchvert_x
-					/ data->tile_size)] == '1')
+					/ data->tile_size)] == '1' ||data->map_tot[(int)(*nexttouchvert_y
+					/ data->tile_size)][(int)(*nexttouchvert_x
+					/ data->tile_size)] == ' ' )
 			{
 				data->found_vert_wall_hit = 1;
 				data->wall_vert_x = *nexttouchvert_x;
@@ -78,7 +82,9 @@ void	horz_cast(t_map *data)
 	data->found_horz_wall_hit = 0;
 	horz_intercepts(data, &nexttouchhorz_x, &nexttouchhorz_y);
 	horz_cast_1(data, &nexttouchhorz_x, &nexttouchhorz_y);
+	
 	horz_cast_2(data, &nexttouchhorz_x, &nexttouchhorz_y);
+	
 }
 
 void	horz_cast_2(t_map *data, float *nexttouchhorz_x, float *nexttouchhorz_y)
@@ -90,7 +96,8 @@ void	horz_cast_2(t_map *data, float *nexttouchhorz_x, float *nexttouchhorz_y)
 			&& *nexttouchhorz_x < data->win_width)
 		{
 			if (data->map_tot[(int)(*nexttouchhorz_y / data->tile_size)
-				- 1][(int)(*nexttouchhorz_x / data->tile_size)] == '1')
+				- 1][(int)(*nexttouchhorz_x / data->tile_size)] == '1' || data->map_tot[(int)(*nexttouchhorz_y / data->tile_size)
+				- 1][(int)(*nexttouchhorz_x / data->tile_size)] == ' ')
 			{
 				data->found_horz_wall_hit = 1;
 				data->wall_hit_x = *nexttouchhorz_x;
@@ -119,7 +126,9 @@ void	horz_cast_1(t_map *data, float *nexttouchhorz_x, float *nexttouchhorz_y)
 		{
 			if (data->map_tot[(int)(*nexttouchhorz_y
 					/ data->tile_size)][(int)(*nexttouchhorz_x
-					/ data->tile_size)] == '1')
+					/ data->tile_size)] == '1' || data->map_tot[(int)(*nexttouchhorz_y
+					/ data->tile_size)][(int)(*nexttouchhorz_x
+					/ data->tile_size)] == ' ')
 			{
 				data->found_horz_wall_hit = 1;
 				data->wall_hit_x = *nexttouchhorz_x;

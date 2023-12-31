@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:36:14 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 18:59:34 by oait-bad         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:55:07 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	get_map(t_map *map, char **av)
 
 	func_initial(map);
 	fd = open(av[1], O_RDWR);
-	if (ft_strncmp(av[1], ".cub", ft_strlen(av[1] - 4)) == 1 || fd < 0)
+	if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".cub", 4) != 0 || fd < 0)
 		exit_fail();
 	line = get_next_line(fd);
 	if (!line)
