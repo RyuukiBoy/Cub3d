@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:18:12 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/31 10:14:39 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:43:20 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	check_len_i(t_map *map)
 		if (map->map_tot[len_i - 1][j] != '1' && map->map_tot[len_i
 			- 1][j] != ' ')
 		{
-			printf("ERROR :len_i --- map must be closed by walls ! \n");
-			exit(1);
+			print_error("ERROR :len_i --- map must be closed by walls ! \n",
+				map);
 		}
 		j++;
 	}
@@ -52,8 +52,8 @@ void	check_len_j(t_map *map)
 		}
 		if (map->map_tot[i][len_j] != '1')
 		{
-			printf("ERROR :len_j --- map must be closed by walls ! \n");
-			exit(1);
+			print_error("ERROR :len_j --- map must be closed by walls ! \n",
+				map);
 		}
 		i++;
 	}

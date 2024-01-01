@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 12:58:25 by oait-bad          #+#    #+#             */
-/*   Updated: 2023/12/30 18:44:00 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:13:25 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,5 @@ void	wall_projection(t_map *data, int i)
 		j++;
 	}
 	floor_ceiling(data, i);
+	free(texture);
 }

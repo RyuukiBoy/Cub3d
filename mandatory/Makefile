@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+         #
+#    By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 11:01:23 by ybouzafo          #+#    #+#              #
-#    Updated: 2023/12/31 11:20:54 by oait-bad         ###   ########.fr        #
+#    Updated: 2024/01/01 16:51:41 by ybouzafo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= cub3D
 
 CC= cc
-CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS= -Wall -Wextra -Werror #-fsanitize=address -g3
 
 RM=rm -f
 SRC =  game_section/wall_projection.c parsing/cub.c parsing/get_line.c libft/ft_split.c libft/ft_strdup.c libft/ft_atoi.c  libft/ft_substr.c libft/ft_strjoin.c libft/ft_strlen.c libft/ft_strtrim.c libft/ft_strchr.c \

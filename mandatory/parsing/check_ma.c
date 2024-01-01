@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:22:18 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/31 10:04:10 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:37:26 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,19 @@ void	func_initial(t_map *map)
 	function_initialisation(map);
 }
 
-void	exit_fail(void)
+void	fonction_to_free(t_map *map)
 {
-	printf("error\n");
-	exit(1);
+	free(map->fc);
+	free(map->fc->ceiling_rgb);
+	free(map->fc->floor_rgb);
+	ft_free(map->map_tot);
+	free(map->textures);
+	free(map);
 }
 
-void	print_error(char *str)
+void	print_error(char *str, t_map *map)
 {
 	printf("%s\n", str);
+	fonction_to_free(map);
 	exit(1);
 }

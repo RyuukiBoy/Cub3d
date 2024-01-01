@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:09:20 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/30 18:45:29 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:48:36 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void	check_i(t_map *map)
 			j++;
 		if (map->map_tot[i][j] != '1' && map->map_tot[i][j] == '\n')
 		{
-			printf("ERROR : i -- map must be closed by walls ! \n");
-			exit(1);
+			print_error("ERROR : i -- map must be closed by walls ! \n", map);
 		}
 		i++;
 	}
@@ -45,8 +44,8 @@ void	check_walls(t_map *map)
 		if (map->map_tot[i][j] != '1' && map->map_tot[i][j] != ' '
 			&& map->map_tot[i][j] != '\n')
 		{
-			printf("ERROR :j -- la carte n'est pas entouree par des murs!");
-			exit(EXIT_FAILURE);
+			print_error("ERROR :j -- la carte n'est pas entouree par des murs!",
+				map);
 		}
 		j++;
 	}

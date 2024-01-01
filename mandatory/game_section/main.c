@@ -6,11 +6,19 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:36:14 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/30 19:55:07 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:39:09 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
+
+void	exit_fail(int fd, t_map *map)
+{
+	printf("Error : open file \n");
+	close(fd);
+	fonction_to_free(map);
+	exit(1);
+}
 
 void	get_map(t_map *map, char **av)
 {
@@ -20,10 +28,10 @@ void	get_map(t_map *map, char **av)
 	func_initial(map);
 	fd = open(av[1], O_RDWR);
 	if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".cub", 4) != 0 || fd < 0)
-		exit_fail();
+		exit_fail(fd, map);
 	line = get_next_line(fd);
 	if (!line)
-		print_error("empty file \n");
+		print_error("empty file \n", map);
 	while (line != 0)
 	{
 		check_double_char(line, map);
@@ -65,7 +73,7 @@ int	main(int ac, char **argv)
 	}
 	else
 		printf("error args \n");
-	free(map);
+	// fonction_to_free(map);
 }
 
 void	ft_free(char **str)

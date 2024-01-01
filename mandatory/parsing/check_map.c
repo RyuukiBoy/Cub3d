@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:48:39 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/31 08:24:04 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:19:57 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	check_player(t_map *map)
 		i++;
 	}
 	if (k > 1 || k == 0)
-		error_print("ERROR : the player position ! \n");
+		print_error("ERROR : the player position ! \n", map);
 }
 
 void	check_allmap(t_map *map)
@@ -56,8 +56,7 @@ void	check_allmap(t_map *map)
 				&& map->map_tot[i][j] != 'N' && map->map_tot[i][j] != 'W'
 				&& map->map_tot[i][j] != ' ' && map->map_tot[i][j] != '\t')
 			{
-				printf("ERROR : map should have just 6 elements \n");
-				exit(1);
+				print_error("ERROR : map should have just 6 elements \n", map);
 			}
 			j++;
 		}
@@ -65,11 +64,11 @@ void	check_allmap(t_map *map)
 	}
 }
 
-char	*check_and_strim(char *ptr)
+char	*check_and_strim(char *ptr, t_map *map)
 {
 	ptr = ft_strtrim_to_free(ptr, "\n");
 	if (ptr == NULL)
-		print_error("ERROR : pas de map ");
+		print_error("ERROR : pas de map ", map);
 	return (ptr);
 }
 
@@ -78,17 +77,17 @@ void	check_map(t_map *map)
 	int	i;
 
 	i = 0;
-	map->ptr = check_and_strim(map->ptr);
+	map->ptr = check_and_strim(map->ptr, map);
 	while (map->ptr[i])
 	{
 		if (map->ptr[i] == '\n' && map->ptr[i + 1] == '\n')
-			print_error("new_line in map");
+			print_error("new_line in map", map);
 		i++;
 	}
 	if (map->ptr)
 		map->map_tot = ft_split(map->ptr, '\n');
 	if (map->map_tot[0] == NULL)
-		print_error("Error : no map in the file");
+		print_error("Error : no map in the file", map);
 	i = 0;
 	while (map->map_tot[i])
 	{

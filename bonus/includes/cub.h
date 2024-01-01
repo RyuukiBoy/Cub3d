@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:01:32 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/31 11:07:43 by oait-bad         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:53:54 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ typedef struct s_map
 // pars
 void			ft_close(t_map *map);
 t_img			*new_img(t_map *data, char *path);
-int				ft_exit(int *key);
+int				ft_exit(int *key, t_map *map);
 void			init_img(t_map *map);
 int				check_line_one(char *line);
 void			valid_path_texture(t_map *map);
@@ -202,7 +202,7 @@ void			check_dub_char(char *line, t_map *map);
 void			check_double_char(char *line, t_map *map);
 void			function_initialisation(t_map *map);
 int				check_norm_deux(char *line, t_map *map);
-void			exit_fail(void);
+void			exit_fail(int fd, t_map *map);
 void			get_map(t_map *map, char **av);
 char			*get_next_line(int fd);
 int				ft_strncmp(const char *s1, const char *s2, size_t l);
@@ -229,7 +229,7 @@ void			ft_free(char **str);
 void			get_map(t_map *map, char **av);
 void			first(char *line, t_map *map, char *tmp);
 void			func_initial(t_map *map);
-void			print_error(char *str);
+void			print_error(char *str, t_map *map);
 char			*skip_space(char *line);
 void			check_double_char(char *line, t_map *map);
 void			check_dub_char(char *line, t_map *map);
@@ -291,10 +291,11 @@ void			vert_intercepts(t_map *data, float *nexttouchvert_x,
 int				create_rgb(int r, int g, int b);
 int				mouse_move(int x, int y, t_map *data);
 char			*skip_tab_space(char *ptr);
-void			check_virg(char *tmp);
+void			check_virg(char *tmp, t_map *map);
 void			vert_wall_hit(t_map *data, float *nextvert_x,
 					float *nextvert_y);
 void			horz_wall_hit(t_map *data, float *nexthorz_x,
 					float *nexthorz_y);
+void			fonction_to_free(t_map *map);
 
 #endif

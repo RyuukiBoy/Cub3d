@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:14:38 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/30 18:57:36 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:00:26 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	first_map(char *line)
 	return (0);
 }
 
-void	check_virg(char *tmp)
+void	check_virg(char *tmp, t_map *map)
 {
 	int	i;
 	int	j;
@@ -60,5 +60,5 @@ void	check_virg(char *tmp)
 		i++;
 	}
 	if (j != 2)
-		print_error("ERROR : colors ");
+		print_error("ERROR : colors ", map);
 }

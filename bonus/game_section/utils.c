@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:40:18 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/30 20:01:56 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:46:35 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ t_img	*new_img(t_map *data, char *path)
 
 	img = malloc(sizeof(t_img));
 	if (!img)
-		print_error("Error :allocation de memoire \n");
+		print_error("Error :allocation de memoire \n", data);
 	img->img = mlx_xpm_file_to_image(data->mlx_ptr, path, &img->width,
 			&img->height);
 	if (img->img == NULL)
-		print_error("ERROR : initialisation img ");
+		print_error("ERROR : initialisation img ", data);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
 	return (img);
@@ -36,8 +36,9 @@ void	init_img(t_map *map)
 	map->textures->we_img = new_img(map, skip_tab_space(map->posi_we));
 }
 
-int	ft_exit(int *key)
+int	ft_exit(int *key, t_map *map)
 {
+	(void)map;
 	(void)key;
 	exit(0);
 }

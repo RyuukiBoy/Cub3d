@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:01:14 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/30 18:45:48 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:48:54 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,10 @@ void	first(char *line, t_map *map, char *tmp)
 			map->ptr = tmp;
 		}
 		else if (line[0] == '\n' && map->var2 == 1 && map->var4 == 1)
-			print_error("Error : invalid map \n");
+			print_error("Error : invalid map \n", map);
 		else if (check_position(skip_space(line), map) == 0)
-			print_error(" b : Error : map invalid \n");
+			print_error(" b : Error : map invalid \n", map);
 	}
 	else if (check_line_one(line) == -1)
-		print_error("c : error invalid map \n");
+		print_error("c : error invalid map \n", map);
 }

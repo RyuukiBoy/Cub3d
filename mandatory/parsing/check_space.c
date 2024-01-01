@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:37:24 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/31 10:14:32 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:42:33 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	function_norm(t_map *map, int i, int j)
 {
 	if (map->map_tot[i + 1] && map->map_tot[i + 1][j] != ' ' && map->map_tot[i
 		+ 1][j] != '1')
-		error_print("ERROR : spaces \n");
+		print_error("ERROR : spaces \n", map);
 	if (i > 0 && map->map_tot[i - 1] && map->map_tot[i - 1] && map->map_tot[i
 			- 1][j] != ' ' && map->map_tot[i - 1][j] != '1')
-		error_print("ERROR : spaces \n");
+		print_error("ERROR : spaces \n", map);
 }
 
 void	check_space_errors(t_map *map)
@@ -38,10 +38,10 @@ void	check_space_errors(t_map *map)
 			{
 				if (map->map_tot[i][j + 1] && map->map_tot[i][j + 1] != ' '
 					&& map->map_tot[i][j + 1] != '1')
-					error_print("ERROR : spaces \n");
+					print_error("ERROR : spaces \n", map);
 				if (j > 0 && map->map_tot[i][j - 1] && map->map_tot[i][j
 					- 1] != ' ' && map->map_tot[i][j - 1] != '1')
-					error_print("ERROR : spaces \n");
+					print_error("ERROR : spaces \n", map);
 				function_norm(map, i, j);
 			}
 			j++;

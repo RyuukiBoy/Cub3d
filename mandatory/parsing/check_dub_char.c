@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_dub_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 10:30:29 by ybouzafo          #+#    #+#             */
-/*   Updated: 2023/12/28 18:58:06 by oait-bad         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:59:07 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ void	check_dub_char(char *line, t_map *map)
 	{
 		map->check_e++;
 		if (map->check_e != 1)
-			print_error("double E");
+			print_error("double E", map);
 	}
 	if (line[i] == 'F')
 	{
 		map->check_f++;
 		if (map->check_f != 1)
-			print_error("double F");
+			print_error("double F", map);
 	}
 	if (line[i] == 'C')
 	{
 		map->check_c++;
 		if (map->check_c != 1)
-			print_error("double C");
+			print_error("double C", map);
 	}
 }
 
@@ -50,19 +50,19 @@ void	check_double_char(char *line, t_map *map)
 	{
 		map->check_n++;
 		if (map->check_n != 1)
-			print_error("double N");
+			print_error("double N", map);
 	}
 	if (line[i] == 'S')
 	{
 		map->check_s++;
 		if (map->check_s != 1)
-			print_error("double S");
+			print_error("double S", map);
 	}
 	if (line[i] == 'W')
 	{
 		map->check_w++;
 		if (map->check_w != 1)
-			print_error("double W");
+			print_error("double W", map);
 	}
 }
 
