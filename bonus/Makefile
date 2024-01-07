@@ -2,7 +2,7 @@
 NAME= cub3D_bonus
 
 CC= cc
-CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS= -Wall -Wextra -Werror 
 
 RM=rm -f
 SRC =  game_section/wall_projection.c parsing/cub.c parsing/get_line.c libft/ft_split.c libft/ft_strdup.c libft/ft_atoi.c  libft/ft_substr.c libft/ft_strjoin.c libft/ft_strlen.c libft/ft_strtrim.c libft/ft_strchr.c \

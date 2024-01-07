@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:36:14 by ybouzafo          #+#    #+#             */
-/*   Updated: 2024/01/01 17:39:09 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/07 09:24:02 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	exit_fail(int fd, t_map *map)
 {
+	(void)map;
 	printf("Error : open file \n");
 	close(fd);
-	fonction_to_free(map);
 	exit(1);
 }
 
@@ -72,8 +72,8 @@ int	main(int ac, char **argv)
 		mlx_loop(map->mlx_ptr);
 	}
 	else
-		printf("error args \n");
-	// fonction_to_free(map);
+		print_error("error args", map);
+	fonction_to_free(map);
 }
 
 void	ft_free(char **str)

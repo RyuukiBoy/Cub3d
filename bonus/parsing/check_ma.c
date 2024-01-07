@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_ma.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:22:18 by ybouzafo          #+#    #+#             */
-/*   Updated: 2024/01/01 17:47:58 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:18:25 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	fonction_to_free(t_map *map)
 
 void	print_error(char *str, t_map *map)
 {
+	(void)map;
 	printf("%s\n", str);
-	fonction_to_free(map);
 	exit(1);
 }

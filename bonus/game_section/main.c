@@ -6,7 +6,7 @@
 /*   By: ybouzafo <ybouzafo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:36:14 by ybouzafo          #+#    #+#             */
-/*   Updated: 2024/01/01 17:55:17 by ybouzafo         ###   ########.fr       */
+/*   Updated: 2024/01/07 09:36:51 by ybouzafo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,13 @@ int	main(int ac, char **argv)
 		get_player_pos(map);
 		mlx_hook(map->win_ptr, 2, 1L << 0, key_press, map);
 		mlx_hook(map->win_ptr, 3, 1L << 1, key_release, map);
+		mlx_hook(map->win_ptr, 6, 1L << 6, mouse_move, map);
 		mlx_hook(map->win_ptr, 17, 0, &ft_exit, NULL);
 		mlx_loop_hook(map->mlx_ptr, update, map);
 		mlx_loop(map->mlx_ptr);
 	}
 	else
-		printf("error args \n");
+		print_error("error args ", map);
 	fonction_to_free(map);
 }
 
