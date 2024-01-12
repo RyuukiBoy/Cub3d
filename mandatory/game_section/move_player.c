@@ -6,7 +6,7 @@
 /*   By: oait-bad <oait-bad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 18:13:18 by oait-bad          #+#    #+#             */
-/*   Updated: 2024/01/04 11:23:08 by oait-bad         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:38:29 by oait-bad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	key_press(int keycode, t_map *data)
 		data->walk_direction = 1;
 	if (keycode == S_KEY || keycode == DOWN_KEY)
 		data->walk_direction = -1;
-	if (keycode == D_KEY)
-		data->turn_direction = 1;
-	if (keycode == A_KEY)
+	if (keycode == LEFT_KEY)
 		data->turn_direction = -1;
 	if (keycode == RIGHT_KEY)
-		data->strafe_direction = 1;
-	if (keycode == LEFT_KEY)
+		data->turn_direction = 1;
+	if (keycode == A_KEY)
 		data->strafe_direction = -1;
+	if (keycode == D_KEY)
+		data->strafe_direction = 1;
 	if (keycode == ESC_KEY)
 		exit(0);
 	return (0);
@@ -37,13 +37,13 @@ int	key_release(int keycode, t_map *data)
 		data->walk_direction = 0;
 	if (keycode == S_KEY || keycode == DOWN_KEY)
 		data->walk_direction = 0;
-	if (keycode == D_KEY)
-		data->turn_direction = 0;
-	if (keycode == A_KEY)
+	if (keycode == LEFT_KEY)
 		data->turn_direction = 0;
 	if (keycode == RIGHT_KEY)
+		data->turn_direction = 0;
+	if (keycode == A_KEY)
 		data->strafe_direction = 0;
-	if (keycode == LEFT_KEY)
+	if (keycode == D_KEY)
 		data->strafe_direction = 0;
 	return (0);
 }
